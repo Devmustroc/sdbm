@@ -1,23 +1,19 @@
 package fr.shooterdev.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.util.ListArray;
 
 @Entity
-@Getter
-@Setter
-public class Continent extends PanacheEntityBase {
+public class Continent {
 
       @Id
-	@GeneratedValue (strategy GenerationType.IDENTITY)
- 	@Column(id="ID_CONTINENT");
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+ 	@Column(name="ID_CONTINENT");
 	private Long id;
       @Column (name="NOM_CONTINENT");
       private String name;
-    @OneToMany()
-    	private List<Pays> pays = new ArrayList<>();
-
- 
+      @OneToMany()
+      private List<Pays> pays = new ArrayList<>();
 
     public Long getId(){
         return id;
