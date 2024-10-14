@@ -14,17 +14,17 @@ import jakarta.ws.rs.core.Response;
 import java.io.Serializable;
 
 @Path("/mail")
-public class MailResource implements Serializable {
+public class MailResource {
 
     @Inject Mailer mailer;
 
     @GET
     @Blocking
-    public void sendEmail() {
+    public void sendEmail(String to, String subject, String body) {
         mailer.send(
-                Mail.withText("gamotakuze@gmail.com",
-                        "test mail",
-                        "A simple email sent from a Quarkus application."
+                Mail.withText(to,
+                        subject,
+                        body
                 )
         );
     }
