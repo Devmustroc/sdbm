@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name="FABRICANT")
+@Entity(name = "FABRICANT")
 public class Fabricant {
 
     @Id
@@ -15,8 +15,8 @@ public class Fabricant {
 	private Long id;
 
     @NotNull
-    @Column (name="NOM_FABRICANT")
-    private String name;
+    @Column (name = "NOM_FABRICANT")
+    private String nomFabricant;
 
     @OneToMany()
     private List<Marque> marques = new ArrayList<>();
@@ -30,11 +30,11 @@ public class Fabricant {
     }
 
     public String getName() {
-        return name;
+        return nomFabricant;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nomFabricant = name;
     }
 
 }

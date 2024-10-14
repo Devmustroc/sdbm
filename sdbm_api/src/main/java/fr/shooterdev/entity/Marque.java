@@ -15,7 +15,7 @@ public class Marque {
 
     @NotNull
     @Column (name = "NOM_MARQUE")
-    private String name;
+    private String nomMarque;
 
     @OneToMany()
     private List<Article> articles = new ArrayList<>();
@@ -29,11 +29,11 @@ public class Marque {
     }
 
     public String getName() {
-        return name;
+        return nomMarque;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nomMarque = name;
     }
 
 }
