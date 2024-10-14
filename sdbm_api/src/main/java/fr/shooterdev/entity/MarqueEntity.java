@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="MARQUE")
-public class Marque {
+public class MarqueEntity {
 
     @Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Marque {
     private String nomMarque;
 
     @OneToMany()
-    private List<Article> articles = new ArrayList<>();
+    private List<ArticleEntity> articles = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -28,12 +28,12 @@ public class Marque {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNomMarque() {
         return nomMarque;
     }
 
-    public void setName(String name) {
-        this.nomMarque = name;
+    public void setNomMarque(String nomMarque) {
+        this.nomMarque = nomMarque;
     }
 
 }

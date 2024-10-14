@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Entity(name = "PAYS")
-public class Pays {
+public class PaysEntity {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Pays {
  	private String nomPays;
 
     @OneToMany()
-  	private List<Marque> marques = new ArrayList<>();
+  	private List<MarqueEntity> marques = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -29,11 +29,11 @@ public class Pays {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNomPays() {
         return nomPays;
     }
 
-    public void setName(String name) {
+    public void setNomPays(String name) {
         this.nomPays = name;
     }
 

@@ -6,20 +6,22 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "FABRICANT")
-public class Fabricant {
 
-    @Id
+@Entity(name = "TICKET)
+public class TicketEntity {
+
+	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
- 	@Column( name = "ID_FABRICANT", nullable = false)
+ 	@Column(name = "ANNEE", nullable = false)
 	private Long id;
 
+    @Id
     @NotNull
-    @Column (name = "NOM_FABRICANT")
-    private String nomFabricant;
+	@Column (name="NUMERO_TICKET")
+ 	private Long numero_ticket;
 
     @OneToMany()
-    private List<Marque> marques = new ArrayList<>();
+  	private List<TicketEntity> marques = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -29,12 +31,12 @@ public class Fabricant {
         this.id = id;
     }
 
-    public String getName() {
-        return nomFabricant;
+    public String getNumero_ticket() {
+        return Numero_ticket;
     }
 
-    public void setName(String name) {
-        this.nomFabricant = name;
+    public void setNomPays(String name) {
+        this.nomPays = name;
     }
 
 }

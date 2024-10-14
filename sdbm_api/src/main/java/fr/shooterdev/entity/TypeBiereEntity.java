@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "TYPEBIERE")
-public class TypeBiere {
+public class TypeBiereEntity {
 
     @Id
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class TypeBiere {
     private String nomTypeBiere;
 
     @OneToMany()
-    private List<Article> articles = new ArrayList<>();
+    private List<ArticleEntity> articles = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -29,12 +29,12 @@ public class TypeBiere {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNomTypeBiere() {
         return nomTypeBiere;
     }
 
-    public void setName(String name) {
-        this.nomTypeBiere = name;
+    public void setNomTypeBiere(String nomTypeBiere) {
+        this.nomTypeBiere = nomTypeBiere;
     }
 
 }

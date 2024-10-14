@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity(name = "CONTINENT")
-public class Continent {
+public class ContinentEntity {
 
     @Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Continent {
     private String name;
 
     @OneToMany()
-    private List<Pays> pays = new ArrayList<>();
+    private List<PaysEntity> pays = new ArrayList<>();
 
     public int getId(){
         return id;
@@ -27,11 +27,11 @@ public class Continent {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNomContinent() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setNomContinent(String name) {
         this.name = name;
     }
 
