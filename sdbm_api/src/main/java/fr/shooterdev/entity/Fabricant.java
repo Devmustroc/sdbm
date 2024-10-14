@@ -1,21 +1,25 @@
 package fr.shooterdev.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
-@Entity
-@Getter
-@Setter
-public class Fabricant extends PanacheEntityBase {
+import java.util.ArrayList;
+import java.util.List;
 
-      @Id
-	@GeneratedValue (strategy GenerationType.IDENTITY)
- 	@Column(id="ID_FABRICANT");
+@Entity(name="FABRICANT")
+public class Fabricant {
+
+    @Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+ 	@Column( name = "ID_FABRICANT", nullable = false)
 	private Long id;
-      @Column (name="NOM_FABRICANT");
-      private String name;
+
+    @NotNull
+    @Column (name="NOM_FABRICANT")
+    private String name;
+
     @OneToMany()
-    	private List<Marque> marques = new ArrayList<>();
+    private List<Marque> marques = new ArrayList<>();
 
     public Long getId(){
         return id;

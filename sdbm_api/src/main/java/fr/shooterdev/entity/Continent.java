@@ -1,25 +1,29 @@
 package fr.shooterdev.entity;
 
 import jakarta.persistence.*;
-import java.util.ListArray;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+
+@Entity(name = "CONTINENT")
 public class Continent {
 
-      @Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
- 	@Column(name="ID_CONTINENT");
-	private Long id;
-      @Column (name="NOM_CONTINENT");
-      private String name;
-      @OneToMany()
-      private List<Pays> pays = new ArrayList<>();
+    @Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+ 	@Column(name="ID_CONTINENT", nullable = false)
+    private int id;
 
-    public Long getId(){
+    @Column (name="NOM_CONTINENT")
+    private String name;
+
+    @OneToMany()
+    private List<Pays> pays = new ArrayList<>();
+
+    public int getId(){
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(int id){
         this.id = id;
     }
 
@@ -31,5 +35,5 @@ public class Continent {
         this.name = name;
     }
 
-}
+    }
 

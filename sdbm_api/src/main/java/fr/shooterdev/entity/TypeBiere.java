@@ -1,21 +1,25 @@
 package fr.shooterdev.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
-@Entity
-@Getter
-@Setter
-public class TypeBiere extends PanacheEntityBase {
+import java.util.ArrayList;
+import java.util.List;
 
-      @Id
-	@GeneratedValue (strategy GenerationType.IDENTITY)
- 	@Column(id="ID_TYPE");
+@Entity(name = "TYPEBIERE")
+public class TypeBiere {
+
+    @Id
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+ 	@Column(name = "ID_TYPE", nullable = false)
 	private Long id;
-      @Column (name="NOM_TYPE");
-      private String name;
+
+    @NotNull
+    @Column (name="NOM_TYPE")
+    private String nomTypeBiere;
+
     @OneToMany()
-    	private List<Article> articles = new ArrayList<>();
+    private List<Article> articles = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -26,11 +30,11 @@ public class TypeBiere extends PanacheEntityBase {
     }
 
     public String getName() {
-        return name;
+        return nomTypeBiere;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nomTypeBiere = name;
     }
 
 }
