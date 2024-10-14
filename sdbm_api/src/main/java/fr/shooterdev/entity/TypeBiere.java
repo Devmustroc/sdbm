@@ -1,37 +1,24 @@
 package fr.shooterdev.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class TypeBiere extends PanacheEntityBase {
+public class TypeBiere {
 
-      @Id
-	@GeneratedValue (strategy GenerationType.IDENTITY)
- 	@Column(id="ID_TYPE");
-	private Long id;
-      @Column (name="NOM_TYPE");
-      private String name;
-    @OneToMany()
-    	private List<Article> articles = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_TYPE", nullable = false)
+    private Integer id;
 
-    public Long getId(){
-        return id;
-    }
-
-    public void setId(Long id){
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Size(max = 25)
+    @NotNull
+    @Column(name = "NOM_TYPE", nullable = false, length = 25)
+    private String nomType;
 
 }
-
