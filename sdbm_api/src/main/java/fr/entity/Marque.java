@@ -1,41 +1,34 @@
-package fr.entity;
+package fr.shooterdev.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Column;
-import java.util.List;
-import java.util.ArrayList;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
+@Entity(name = "MARQUE")
+@Getter
+@Setter
 public class Marque {
 
-      @Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
- 	@Column(name="ID_MARQUE")
-	private Long id;
-      @Column (name="NOM_MARQUE")
-      private String name;
-    @OneToMany()
-    	private List<Article> articles = new ArrayList<>();
 
-    public Long getId(){
-        return id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_MARQUE", nullable = false)
+    private Integer id;
 
-    public void setId(Long id){
-        this.id = id;
-    }
+    @Size(max = 40)
+    @NotNull
+    @Column(name = "NOM_MARQUE", nullable = false, length = 40)
+    private String nomMarque;
 
-    public String getName() {
-        return name;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PAYS")
+    private Pays idPays;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_FABRICANT")
+    private Fabricant idFabricant;
 
 }
 

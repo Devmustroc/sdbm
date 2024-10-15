@@ -6,20 +6,19 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name = "FABRICANT")
+@Entity(name = "TYPEBIERE")
 @Getter
 @Setter
-public class Fabricant {
+public class TypeBiere {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_FABRICANT", nullable = false)
+    @Column(name = "ID_TYPE", nullable = false)
     private Integer id;
 
-    @Size(max = 40)
+    @Size(max = 25)
     @NotNull
-    @Column(name = "NOM_FABRICANT", nullable = false, length = 40)
-    private String nomFabricant;
+    @Column(name = "NOM_TYPE", nullable = false, length = 25)
+    private String nomType;
 
 }
-
