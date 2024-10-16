@@ -15,17 +15,14 @@ public class VendreItemId  implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @NotNull
-    private Long annee;
-    @NotNull
-    private Long numero_ticket;
+    private Long ticketItemId;
     @NotNull
     private Long articleId;
 
     public VendreItemId() {}
 
-    public VendreItemId(@NotNull Long annee, @NotNull Long numero_ticket, @NotNull Long articleId) {
-        this.annee = annee;
-        this.numero_ticket = numero_ticket;
+    public VendreItemId(@NotNull Long ticketItemId, @NotNull Long articleId) {
+        this.ticketItemId = ticketItemId;
         this.articleId = articleId;
     }
 
@@ -34,12 +31,12 @@ public class VendreItemId  implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VendreItemId that = (VendreItemId) o;
-        return Objects.equals(annee, that.annee) && Objects.equals(numero_ticket, that.numero_ticket)
+        return Objects.equals(ticketItemId, that.ticketItemId)
                 && Objects.equals(articleId, that.articleId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(annee, numero_ticket, articleId);
+        return Objects.hash(ticketItemId, articleId);
     }
 }

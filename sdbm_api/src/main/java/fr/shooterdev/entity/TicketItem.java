@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Embeddable
-public class TicketItemId implements Serializable {
+public class TicketItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @NotNull
@@ -19,9 +19,9 @@ public class TicketItemId implements Serializable {
     @NotNull
     private Long numeroTicket;
 
-    public TicketItemId() {}
+    public TicketItem() {}
 
-    public TicketItemId(@NotNull Long id, @NotNull Long numeroTicket) {
+    public TicketItem(@NotNull Long id, @NotNull Long numeroTicket) {
         this.id = id;
         this.numeroTicket = numeroTicket;
     }
@@ -30,7 +30,7 @@ public class TicketItemId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TicketItemId that = (TicketItemId) o;
+        TicketItem that = (TicketItem) o;
         return Objects.equals(id, that.id) && Objects.equals(numeroTicket, that.numeroTicket);
     }
 
