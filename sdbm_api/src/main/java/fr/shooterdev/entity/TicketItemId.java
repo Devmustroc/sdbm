@@ -19,6 +19,13 @@ public class TicketItemId implements Serializable {
     @NotNull
     private Long numeroTicket;
 
+    public TicketItemId() {}
+
+    public TicketItemId(@NotNull Long id, @NotNull Long numeroTicket) {
+        this.id = id;
+        this.numeroTicket = numeroTicket;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
